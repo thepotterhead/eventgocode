@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://jolly-bombolone-6556c8.netlify.app/#/login -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1020">
+<title>Eventra — Smart Event &amp; Ticket Management</title>
+
+<!-- CDN libraries: no build step required -->
+<script src="./Eventra — Smart Event &amp; Ticket Management_files/qrcode.min.js.download"></script>
+<script src="./Eventra — Smart Event &amp; Ticket Management_files/html5-qrcode.min.js.download"></script>
+<script src="./Eventra — Smart Event &amp; Ticket Management_files/chart.umd.min.js.download"></script>
+
+<style>
+:root{
+  --bg:#f6f8fc;--surface:#fff;--surface2:#f0f3f9;--text:#101828;--muted:#667085;
+  --line:#e4e7ec;--primary:#635bff;--primary2:#5148e5;--success:#12b76a;--warning:#f79009;
+  --danger:#f04438;--dark:#0b1020;--shadow:0 18px 50px rgba(16,24,40,.08);--radius:20px
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+button,input,select,textarea{font:inherit}button{cursor:pointer;border:0}.hidden{display:none!important}
+a{color:inherit;text-decoration:none}.container{width:min(1180px,92%);margin:auto}
+.nav{height:72px;background:rgba(255,255,255,.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50}
+.nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{font-size:23px;font-weight:900;letter-spacing:-.7px;display:flex;align-items:center;gap:10px}.brand-mark{width:36px;height:36px;border-radius:11px;background:var(--dark);color:#fff;display:grid;place-items:center;font-weight:900}
+.nav-links{display:flex;gap:24px;align-items:center;color:#475467;font-size:14px;font-weight:650}.nav-links a:hover{color:var(--primary)}
+.actions{display:flex;gap:10px;align-items:center}.btn{padding:11px 16px;border-radius:12px;font-weight:750;transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--primary);color:#fff;box-shadow:0 8px 20px rgba(99,91,255,.22)}.btn-primary:hover{background:var(--primary2)}.btn-secondary{background:#fff;border:1px solid var(--line);color:var(--text)}.btn-dark{background:var(--dark);color:#fff}.btn-danger{background:#fff1f0;color:#c4322a}.btn-success{background:#eafaf2;color:#087443}
+.hero{padding:78px 0 45px;background:radial-gradient(circle at 80% 10%,rgba(99,91,255,.15),transparent 35%),linear-gradient(#fff,#f6f8fc)}
+.hero-grid{display:grid;grid-template-columns:1.02fr .98fr;gap:48px;align-items:center}.eyebrow{display:inline-flex;gap:8px;align-items:center;background:#eeecff;color:#5148e5;border:1px solid #ddd9ff;padding:7px 11px;border-radius:999px;font-size:12px;font-weight:800}.hero h1{font-size:clamp(45px,6vw,76px);line-height:.98;letter-spacing:-4px;margin:18px 0}.hero h1 span{color:var(--primary)}.hero p{font-size:18px;line-height:1.65;color:var(--muted);max-width:600px}.hero-actions{display:flex;gap:12px;margin:28px 0;flex-wrap:wrap}.trust{display:flex;flex-wrap:wrap;gap:18px;color:#475467;font-size:13px;font-weight:650}.trust span{display:flex;gap:6px;align-items:center}.trust b{color:var(--success)}
+.hero-card{background:var(--dark);border-radius:28px;padding:22px;color:#fff;box-shadow:0 30px 80px rgba(11,16,32,.25);transform:rotate(1deg)}.hero-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}.hero-stat{background:rgba(255,255,255,.08);padding:16px;border-radius:16px}.hero-stat small{color:#98a2b3}.hero-stat strong{display:block;font-size:27px;margin-top:5px}.mini-chart{height:125px;display:flex;align-items:end;gap:9px;padding:18px 0}.mini-chart i{display:block;flex:1;background:#817aff;border-radius:8px 8px 3px 3px;opacity:.9}.qr-demo{display:flex;align-items:center;gap:16px;background:#fff;color:var(--text);padding:14px;border-radius:16px}.qr-box{width:78px;height:78px;background:repeating-linear-gradient(45deg,#111 0 4px,#fff 4px 8px);border:7px solid #fff;box-shadow:0 0 0 1px #ddd}
+
+.section{padding:70px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:25px}.section-head h2{font-size:34px;letter-spacing:-1.4px;margin:0}.section-head p{color:var(--muted);margin:7px 0 0}.grid{display:grid;gap:18px}.grid-3{grid-template-columns:repeat(3,1fr)}.grid-4{grid-template-columns:repeat(4,1fr)}.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 8px 25px rgba(16,24,40,.04)}.event-card{overflow:hidden;transition:.2s}.event-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.event-cover{height:170px;background:linear-gradient(135deg,#141b34,#635bff);position:relative;padding:18px;color:#fff;display:flex;align-items:end}.event-cover:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.25),transparent 30%)}.event-cover h3{position:relative;margin:0;font-size:23px}.event-body{padding:18px}.meta{color:var(--muted);font-size:13px;display:grid;gap:8px}.price{font-weight:900;font-size:19px}.row{display:flex;justify-content:space-between;align-items:center;gap:12px}.tag{display:inline-flex;padding:5px 9px;border-radius:999px;background:#f2f4f7;color:#475467;font-size:11px;font-weight:800}.tag.live{background:#eafaf2;color:#087443}.tag.warn{background:#fff6e8;color:#b54708}
+.feature{padding:22px}.feature-icon{width:44px;height:44px;border-radius:13px;background:#eeecff;color:var(--primary);display:grid;place-items:center;font-size:20px;margin-bottom:14px}.feature h3{margin:0 0 8px}.feature p{margin:0;color:var(--muted);line-height:1.55;font-size:14px}
+.footer{background:var(--dark);color:#fff;padding:35px 0}.footer p{color:#98a2b3}
+
+.app-shell{display:flex;min-height:calc(100vh - 72px)}.sidebar{width:245px;background:#fff;border-right:1px solid var(--line);padding:22px 14px;position:sticky;top:72px;height:calc(100vh - 72px)}.side-title{font-size:11px;text-transform:uppercase;letter-spacing:1px;color:#98a2b3;padding:10px 12px}.side-link{display:flex;align-items:center;gap:11px;padding:11px 12px;border-radius:11px;color:#475467;font-size:14px;font-weight:700;margin:3px 0}.side-link:hover,.side-link.active{background:#eeecff;color:#5148e5}.main{flex:1;padding:30px;min-width:0}.page-title{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:25px}.page-title h1{margin:0;font-size:30px;letter-spacing:-1px}.page-title p{color:var(--muted);margin:5px 0 0}.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:20px}.stat{padding:20px}.stat small{color:var(--muted);font-weight:700}.stat strong{display:block;font-size:28px;margin-top:9px}.stat .delta{font-size:12px;color:var(--success);font-weight:800;margin-top:7px}.dashboard-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:18px}.panel{padding:20px}.panel h3{margin:0 0 18px}.chart-wrap{height:280px}.health{background:linear-gradient(135deg,#11172a,#202a4b);color:#fff;border:0}.health .muted{color:#b8c0d4}.health-score{font-size:42px;font-weight:900;margin:10px 0}.progress{height:9px;background:#eaecf0;border-radius:99px;overflow:hidden}.progress > i{display:block;height:100%;background:var(--primary);border-radius:99px}.health .progress{background:rgba(255,255,255,.13)}.health .progress>i{background:#8f89ff}
+.table-wrap{overflow:auto}.table{width:100%;border-collapse:collapse;font-size:13px}.table th,.table td{text-align:left;padding:13px;border-bottom:1px solid var(--line);white-space:nowrap}.table th{color:#667085;font-size:11px;text-transform:uppercase;letter-spacing:.5px}.status{font-size:11px;font-weight:800;padding:5px 8px;border-radius:99px}.status.ok{background:#eafaf2;color:#087443}.status.pending{background:#fff6e8;color:#b54708}.status.bad{background:#fff1f0;color:#c4322a}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:15px}.field{display:grid;gap:7px}.field.full{grid-column:1/-1}.field label{font-size:12px;font-weight:800;color:#344054}.field input,.field select,.field textarea{width:100%;padding:12px 13px;border:1px solid #d0d5dd;border-radius:11px;outline:none;background:#fff}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(99,91,255,.1)}.field textarea{min-height:110px;resize:vertical}.steps{display:flex;gap:8px;margin-bottom:20px}.step{flex:1;height:7px;background:#e4e7ec;border-radius:99px}.step.active{background:var(--primary)}
+.ticket-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.ticket-option{padding:20px;position:relative}.ticket-option.selected{border:2px solid var(--primary);padding:19px}.ticket-option h3{margin:0 0 5px}.ticket-price{font-size:28px;font-weight:900}.benefits{padding:0;margin:15px 0;list-style:none;color:#667085;font-size:13px;display:grid;gap:8px}.benefits li:before{content:"✓";color:var(--success);font-weight:900;margin-right:7px}
+.detail-hero{height:310px;border-radius:24px;background:linear-gradient(135deg,#10172d,#635bff);color:#fff;padding:35px;display:flex;align-items:end;position:relative;overflow:hidden}.detail-hero:after{content:"";position:absolute;width:450px;height:450px;border-radius:50%;background:rgba(255,255,255,.09);right:-160px;top:-160px}.detail-hero>div{position:relative;z-index:1}.detail-hero h1{font-size:46px;letter-spacing:-2px;margin:10px 0}.detail-layout{display:grid;grid-template-columns:1.45fr .75fr;gap:20px;margin-top:20px}.sticky{position:sticky;top:92px;height:max-content}.summary{padding:20px}.summary-row{display:flex;justify-content:space-between;padding:10px 0;color:#667085}.summary-row.total{border-top:1px solid var(--line);color:var(--text);font-weight:900;font-size:18px;margin-top:8px}
+
+.checkout{max-width:1050px;margin:auto;display:grid;grid-template-columns:1.25fr .75fr;gap:20px}.mock-banner{padding:12px 15px;background:#fff6e8;color:#9b5b00;border:1px solid #f6d28d;border-radius:12px;font-size:13px;font-weight:800}.payment-methods{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.pay-method{padding:14px;border:1px solid var(--line);border-radius:12px;text-align:center;font-weight:750}.pay-method.selected{border:2px solid var(--primary);padding:13px;background:#f8f7ff}
+.ticket-shell{max-width:760px;margin:auto}.digital-ticket{overflow:hidden;border:0;box-shadow:0 25px 60px rgba(16,24,40,.14)}.ticket-head{background:var(--dark);color:#fff;padding:24px}.ticket-main{padding:24px;background:#fff}.qr-area{display:flex;justify-content:center;padding:18px}.ticket-info{display:grid;grid-template-columns:1fr 1fr;gap:15px}.ticket-info small{color:#98a2b3}.ticket-info strong{display:block;margin-top:4px}.ticket-cut{border-top:2px dashed #d0d5dd;position:relative;margin:22px 0}.ticket-cut:before,.ticket-cut:after{content:"";position:absolute;top:-10px;width:20px;height:20px;border-radius:50%;background:var(--bg)}.ticket-cut:before{left:-34px}.ticket-cut:after{right:-34px}
+
+.scanner{max-width:620px;margin:auto}.scan-window{background:#0b1020;border-radius:20px;overflow:hidden;min-height:310px;display:grid;place-items:center;color:#fff;position:relative}.scan-window:before{content:"";position:absolute;width:220px;height:220px;border:2px solid #8f89ff;border-radius:20px;box-shadow:0 0 0 999px rgba(0,0,0,.15)}#reader{width:100%}.scan-result{padding:18px;margin-top:15px}.result-icon{font-size:35px}.result-valid{border:1px solid #a6e8c5;background:#f0fff7}.result-invalid{border:1px solid #f3b5b0;background:#fff7f6}.result-warn{border:1px solid #f5d394;background:#fffaf0}
+
+.login-page{min-height:calc(100vh - 72px);display:grid;place-items:center;padding:30px;background:radial-gradient(circle at 70% 20%,rgba(99,91,255,.14),transparent 35%),var(--bg)}.login-card{width:min(440px,94vw);padding:28px}.login-card h1{margin:0 0 7px}.demo-box{background:#f7f8fa;border:1px dashed #cfd4dc;padding:13px;border-radius:12px;font-size:12px;margin-top:16px}.demo-box b{display:block;margin-bottom:5px}
+.modal-bg{position:fixed;inset:0;background:rgba(11,16,32,.55);display:grid;place-items:center;z-index:100;padding:20px}.modal{width:min(560px,100%);background:#fff;border-radius:22px;padding:24px;box-shadow:0 30px 90px rgba(0,0,0,.25)}
+.toast{position:fixed;right:20px;bottom:20px;z-index:200;background:var(--dark);color:#fff;padding:13px 16px;border-radius:12px;box-shadow:var(--shadow);font-size:13px;font-weight:750;animation:slide .25s ease}.toast.success{background:#087443}.toast.error{background:#b42318}@keyframes slide{from{transform:translateY(15px);opacity:0}to{transform:none;opacity:1}}
+.empty{padding:45px;text-align:center;color:var(--muted)}.mobile-menu{display:none}.muted{color:var(--muted)}.split{display:flex;justify-content:space-between;align-items:center;gap:12px}.danger-text{color:var(--danger);font-size:12px;font-weight:700}.success-text{color:var(--success);font-size:12px;font-weight:700}
+
+@media(max-width:900px){
+  .hero-grid,.detail-layout,.checkout,.dashboard-grid{grid-template-columns:1fr}.grid-3,.grid-4,.ticket-grid,.stats{grid-template-columns:repeat(2,1fr)}.sidebar{display:none}.main{padding:20px}.mobile-menu{display:flex}.nav-links{display:none}.hero{padding-top:48px}.hero-card{transform:none}.sticky{position:static}.detail-hero h1{font-size:36px}
+}
+@media(max-width:600px){
+  .nav{height:64px}.brand{font-size:20px}.brand-mark{width:32px;height:32px}.actions .btn-secondary{display:none}.hero h1{font-size:48px;letter-spacing:-2.5px}.hero p{font-size:16px}.section{padding:48px 0}.section-head{display:block}.section-head h2{font-size:28px}.grid-3,.grid-4,.ticket-grid,.stats,.form-grid,.ticket-info{grid-template-columns:1fr}.field.full{grid-column:auto}.main{padding:15px}.page-title{align-items:flex-start}.page-title h1{font-size:25px}.table th,.table td{padding:10px 8px}.payment-methods{grid-template-columns:1fr}.detail-hero{height:260px;padding:24px}.detail-hero h1{font-size:32px}.trust{gap:10px}.hero-actions .btn{width:100%}
+}
+</style>
+</head>
+
+<body>
+<div id="app"><header class="nav"><div class="container nav-inner">
+   <a class="brand" href="https://jolly-bombolone-6556c8.netlify.app/#/"><span class="brand-mark">E</span>Eventra</a>
+   <nav class="nav-links">
+     <a href="https://jolly-bombolone-6556c8.netlify.app/#/explore">Explore Events</a><a href="https://jolly-bombolone-6556c8.netlify.app/#/how">How It Works</a><a href="https://jolly-bombolone-6556c8.netlify.app/#/organizer">For Organizers</a>
+   </nav>
+   <div class="actions">
+     <a class="btn btn-secondary" href="https://jolly-bombolone-6556c8.netlify.app/#/login">Login</a><a class="btn btn-primary" href="https://jolly-bombolone-6556c8.netlify.app/#/create">Create Event</a>
+   </div>
+ </div></header><main class="login-page"><div class="login-card card">
+ <div class="brand" style="margin-bottom:25px"><span class="brand-mark">E</span>Eventra</div><h1>Welcome back</h1><p class="muted">Sign in to continue your event journey.</p>
+ <div class="form-grid" style="margin-top:20px"><div class="field full"><label>Email</label><input id="lemail" type="email" placeholder="you@example.com"></div><div class="field full"><label>Password</label><input id="lpass" type="password" placeholder="••••••••"></div></div>
+ <button class="btn btn-primary" style="width:100%;margin-top:16px" onclick="doLogin()">Login</button>
+ <div class="demo-box"><b>⚡ Demo Mode</b>Organizer: organizer@eventra.demo / demo123<br>Attendee: attendee@eventra.demo / demo123<br><button class="btn btn-secondary" style="margin-top:10px;width:100%" onclick="demoLogin(&#39;organizer&#39;)">Enter Organizer Demo</button><button class="btn btn-secondary" style="margin-top:7px;width:100%" onclick="demoLogin(&#39;attendee&#39;)">Enter Attendee Demo</button></div>
+ </div></main></div>
+<div id="toastRoot"></div>
+
+<script>
+/* ============================================================
+   EVENTRA — SINGLE FILE HACKATHON MVP
+   Data is persisted in localStorage.
+   QR generation/scanning uses CDN libraries.
+   ============================================================ */
+
+const KEY="eventra_single_file_v1";
+const uid=(prefix="id")=>prefix+"_"+Math.random().toString(36).slice(2,9)+"_"+Date.now().toString(36);
+const money=n=>"₹"+Number(n||0).toLocaleString("en-IN");
+const esc=s=>String(s??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"}[m]));
+const dateText=d=>d?new Date(d+"T00:00:00").toLocaleDateString("en-IN",{day:"2-digit",month:"short",year:"numeric"}):"—";
+
+function seed(){
+  const events=[
+    {id:"evt_technova",name:"TechNova 2026",category:"Technology",description:"A high-energy technology summit featuring product builders, AI demos, startup stories and hands-on sessions.",date:"2026-09-18",time:"09:00",endTime:"18:00",venue:"Chennai Trade Centre",city:"Chennai",organizerId:"org-demo",image:"",status:"LIVE"},
+    {id:"evt_music",name:"Campus Music Fest",category:"Music",description:"A vibrant campus celebration with live performances, food, creators and an unforgettable evening.",date:"2026-09-26",time:"16:00",endTime:"22:00",venue:"University Grounds",city:"Chennai",organizerId:"org-demo",image:"",status:"LIVE"},
+    {id:"evt_startup",name:"Startup Summit",category:"Business",description:"Meet founders, mentors and builders. Discover practical lessons from idea to product-market fit.",date:"2026-10-03",time:"10:00",endTime:"17:00",venue:"The Leela Convention Hall",city:"Bengaluru",organizerId:"org-demo",image:"",status:"LIVE"},
+    {id:"evt_design",name:"Design Connect",category:"Design",description:"A creative conference for UI/UX, visual design and product thinking.",date:"2026-10-11",time:"11:00",endTime:"18:00",venue:"HITEX Hall",city:"Hyderabad",organizerId:"org-demo",image:"",status:"LIVE"},
+    {id:"evt_code",name:"CodeStorm Hackathon",category:"Technology",description:"Build bold ideas in 24 hours with mentors, challenges and a demo-day finale.",date:"2026-10-24",time:"09:00",endTime:"20:00",venue:"Tidel Park",city:"Chennai",organizerId:"org-demo",image:"",status:"LIVE"}
+  ];
+  const tiers=[];
+  events.forEach((e,idx)=>{
+    tiers.push(
+      {id:uid("tier"),eventId:e.id,name:"Early Bird",price:199+idx*20,quantity:80,sold:idx===0?46:idx===1?55:22,benefits:["Event entry","Limited availability"]},
+      {id:uid("tier"),eventId:e.id,name:"General",price:299+idx*30,quantity:120,sold:idx===0?72:idx===1?42:34,benefits:["Event entry","Standard seating"]},
+      {id:uid("tier"),eventId:e.id,name:"VIP",price:699+idx*50,quantity:50,sold:idx===0?31:idx===1?18:12,benefits:["Priority entry","Premium seating","Goodie bag"]}
+    );
+  });
+  const attendees=[
+    ["Arun Kumar","arun@example.com","9876543210"],["Meera S","meera@example.com","9876543211"],["Kavin R","kavin@example.com","9876543212"],
+    ["Aisha M","aisha@example.com","9876543213"],["Rahul P","rahul@example.com","9876543214"],["Nila V","nila@example.com","9876543215"],
+    ["Sanjay K","sanjay@example.com","9876543216"],["Dhivya R","dhivya@example.com","9876543217"],["Vishnu S","vishnu@example.com","9876543218"],
+    ["Harini J","harini@example.com","9876543219"],["Aditya N","aditya@example.com","9876543220"],["Keerthana P","keerthana@example.com","9876543221"],
+    ["Surya M","surya@example.com","9876543222"],["Priya K","priya@example.com","9876543223"],["Dinesh R","dinesh@example.com","9876543224"],
+    ["Ananya S","ananya@example.com","9876543225"],["Vikram A","vikram@example.com","9876543226"],["Swetha V","swetha@example.com","9876543227"],
+    ["Gokul T","gokul@example.com","9876543228"],["Janani R","janani@example.com","9876543229"]
+  ].map(x=>({id:uid("att"),name:x[0],email:x[1],phone:x[2]}));
+
+  const orders=[],tickets=[];
+  attendees.forEach((a,i)=>{
+    const e=events[i%events.length], et=tiers.filter(t=>t.eventId===e.id), tier=et[i%3];
+    const order={id:uid("ord"),eventId:e.id,attendeeId:a.id,ticketTypeId:tier.id,amount:tier.price,status:"PAID",createdAt:new Date(Date.now()-i*86400000).toISOString()};
+    orders.push(order);
+    tickets.push({id:"EVT-"+String(100000+i),orderId:order.id,attendeeId:a.id,eventId:e.id,ticketType:tier.name,qrCode:"EVT-"+String(100000+i),status:i%3===0?"CHECKED_IN":"VALID",checkedInAt:i%3===0?new Date().toISOString():null});
+  });
+  return {events,ticketTypes:tiers,orders,tickets,attendees};
+}
+let db=JSON.parse(localStorage.getItem(KEY)||"null")||seed();
+function save(){localStorage.setItem(KEY,JSON.stringify(db));}
+function resetDemo(){db=seed();save();location.reload();}
+let session=JSON.parse(sessionStorage.getItem("eventra_session")||"null");
+function setSession(s){session=s;sessionStorage.setItem("eventra_session",JSON.stringify(s))}
+function logout(){session=null;sessionStorage.removeItem("eventra_session");go("#/");}
+
+function toast(msg,type=""){const r=document.getElementById("toastRoot");r.innerHTML=`<div class="toast ${type}">${esc(msg)}</div>`;setTimeout(()=>r.innerHTML="",3000)}
+function go(path){location.hash=path}
+function currentRoute(){return location.hash.replace(/^#/,"")||"/"}
+function eventById(id){return db.events.find(e=>e.id===id)}
+function tierById(id){return db.ticketTypes.find(t=>t.id===id)}
+function attendeeById(id){return db.attendees.find(a=>a.id===id)}
+function ticketById(id){return db.tickets.find(t=>t.id===id)}
+function organizerTickets(){return db.tickets.filter(t=>t.eventId && eventById(t.eventId)?.organizerId==="org-demo")}
+function soldCount(){return db.orders.length}
+function revenue(){return db.orders.reduce((s,o)=>s+o.amount,0)}
+function checkedInCount(){return db.tickets.filter(t=>t.status==="CHECKED_IN").length}
+
+function nav(){
+ return `<header class="nav"><div class="container nav-inner">
+   <a class="brand" href="#/"><span class="brand-mark">E</span>Eventra</a>
+   <nav class="nav-links">
+     <a href="#/explore">Explore Events</a><a href="#/how">How It Works</a><a href="#/organizer">For Organizers</a>
+   </nav>
+   <div class="actions">
+     ${session?`<a class="btn btn-secondary" href="#/dashboard">Dashboard</a><button class="btn btn-primary" onclick="logout()">Log out</button>`:`<a class="btn btn-secondary" href="#/login">Login</a><a class="btn btn-primary" href="#/create">Create Event</a>`}
+   </div>
+ </div></header>`
+}
+function layout(content,app=true){
+ document.getElementById("app").innerHTML=nav()+(app?content:content);
+}
+
+function landing(){
+ layout(`
+ <main>
+  <section class="hero"><div class="container hero-grid">
+    <div><span class="eyebrow">✦ Smart event operations</span>
+      <h1>Your Event.<br>Your Tickets.<br><span>Your Crowd.</span></h1>
+      <p>Create events, sell tickets through a safe demo checkout, generate unique QR tickets and check attendees in from one beautiful platform.</p>
+      <div class="hero-actions"><a class="btn btn-primary" href="#/create">Create an Event →</a><a class="btn btn-secondary" href="#/explore">Explore Events</a></div>
+      <div class="trust"><span><b>✓</b> Easy event creation</span><span><b>✓</b> QR tickets</span><span><b>✓</b> Instant check-in</span><span><b>✓</b> Live dashboard</span></div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-top"><strong>Eventra Analytics</strong><span class="tag live">● LIVE</span></div>
+      <div class="grid grid-3"><div class="hero-stat"><small>Tickets sold</small><strong>1,248</strong></div><div class="hero-stat"><small>Revenue</small><strong>₹4.82L</strong></div><div class="hero-stat"><small>Check-in</small><strong>69%</strong></div></div>
+      <div class="mini-chart">${[45,70,52,82,65,94,78].map(h=>`<i style="height:${h}%"></i>`).join("")}</div>
+      <div class="qr-demo"><div class="qr-box"></div><div><strong>Ticket verified</strong><div style="color:#667085;font-size:12px;margin-top:5px">EVT-10482 · VIP · VALID</div></div><span style="margin-left:auto;color:#12b76a;font-weight:900">✓</span></div>
+    </div>
+  </div></section>
+  <section class="section"><div class="container"><div class="section-head"><div><h2>Everything between “going live” and “doors open.”</h2><p>One workflow for organizers and attendees.</p></div></div>
+   <div class="grid grid-4">
+    ${[
+      ["✦","Create","Build an event in minutes with flexible ticket tiers and inventory."],
+      ["↗","Sell","Let attendees browse, choose tickets and complete a clearly labelled demo checkout."],
+      ["▣","Ticket","Every purchase creates a unique digital ticket with a QR identifier."],
+      ["✓","Scan","Verify tickets at the door and prevent duplicate check-ins."]
+    ].map(x=>`<div class="card feature"><div class="feature-icon">${x[0]}</div><h3>${x[1]}</h3><p>${x[2]}</p></div>`).join("")}
+   </div>
+  </div></section>
+  <section class="section" id="how" style="background:#fff"><div class="container"><div class="section-head"><div><h2>Built for the whole event journey.</h2><p>Simple enough for a first demo. Strong enough to feel like a product.</p></div><a class="btn btn-dark" href="#/explore">Browse demo events</a></div></div></section>
+ </main>
+ <footer class="footer"><div class="container"><div class="brand"><span class="brand-mark">E</span>Eventra</div><p>Smart event & ticket management prototype · Mock payments only.</p></div></footer>`);
+}
+
+function explore(){
+ let q="",cat="ALL",sort="date";
+ const render=()=>{
+  let arr=[...db.events];
+  const s=document.getElementById("search")?.value.toLowerCase()||q;
+  const c=document.getElementById("cat")?.value||cat;
+  if(s)arr=arr.filter(e=>(e.name+" "+e.city+" "+e.category).toLowerCase().includes(s));
+  if(c!=="ALL")arr=arr.filter(e=>e.category===c);
+  if(sort==="price")arr.sort((a,b)=>minPrice(a.id)-minPrice(b.id));else arr.sort((a,b)=>a.date.localeCompare(b.date));
+  document.getElementById("eventGrid").innerHTML=arr.map(eventCard).join("")||`<div class="empty card">No events match your search.</div>`;
+ };
+ layout(`<main class="section"><div class="container">
+  <div class="page-title"><div><h1>Explore Events</h1><p>Find your next experience.</p></div><a class="btn btn-primary" href="#/create">+ Create Event</a></div>
+  <div class="card panel" style="margin-bottom:18px"><div class="form-grid">
+   <div class="field"><label>Search</label><input id="search" placeholder="Search events, cities or categories"></div>
+   <div class="field"><label>Category</label><select id="cat"><option value="ALL">All categories</option>${[...new Set(db.events.map(e=>e.category))].map(c=>`<option>${esc(c)}</option>`).join("")}</select></div>
+  </div></div>
+  <div id="eventGrid" class="grid grid-3"></div>
+ </div></main>`);
+ document.getElementById("search").oninput=render;document.getElementById("cat").onchange=render;render();
+}
+function minPrice(eid){return Math.min(...db.ticketTypes.filter(t=>t.eventId===eid).map(t=>t.price),0)}
+function eventCard(e){return `<article class="card event-card"><div class="event-cover"><div><span class="tag" style="background:rgba(255,255,255,.15);color:#fff">${esc(e.category)}</span><h3>${esc(e.name)}</h3></div></div><div class="event-body"><div class="meta"><span>📅 ${dateText(e.date)} · ${esc(e.time)}</span><span>📍 ${esc(e.venue)}, ${esc(e.city)}</span></div><div class="row" style="margin-top:17px"><div><small class="muted">From</small><div class="price">${money(minPrice(e.id))}</div></div><a class="btn btn-primary" href="#/events/${e.id}">View Event</a></div></div></article>`}
+
+function eventDetails(id){
+ const e=eventById(id);if(!e){go("#/explore");return}
+ const tiers=db.ticketTypes.filter(t=>t.eventId===id);
+ let selected=tiers[0]?.id,qty=1;
+ layout(`<main class="section"><div class="container">
+  <div class="detail-hero"><div><span class="tag" style="background:rgba(255,255,255,.14);color:#fff">${esc(e.category)} · ${e.status}</span><h1>${esc(e.name)}</h1><div>📅 ${dateText(e.date)} · ${esc(e.time)} &nbsp; · &nbsp; 📍 ${esc(e.venue)}, ${esc(e.city)}</div></div></div>
+  <div class="detail-layout"><div>
+   <div class="card panel"><h2>About this event</h2><p class="muted" style="line-height:1.7">${esc(e.description)}</p><div class="grid grid-3" style="margin-top:20px"><div><small class="muted">Organizer</small><strong style="display:block;margin-top:5px">Eventra Organizers</strong></div><div><small class="muted">Venue</small><strong style="display:block;margin-top:5px">${esc(e.venue)}</strong></div><div><small class="muted">City</small><strong style="display:block;margin-top:5px">${esc(e.city)}</strong></div></div></div>
+   <div class="card panel" style="margin-top:18px"><h2>Choose your ticket</h2><div class="ticket-grid">${tiers.map((t,i)=>`<div class="card ticket-option ${i===0?"selected":""}" data-tier="${t.id}" onclick="selectTier('${t.id}')"><span class="tag">${esc(t.name)}</span><div class="ticket-price">${money(t.price)}</div><ul class="benefits">${t.benefits.map(b=>`<li>${esc(b)}</li>`).join("")}</ul><div class="muted">${Math.max(t.quantity-t.sold,0)} left</div></div>`).join("")}</div></div>
+  </div>
+  <aside class="card summary sticky"><h3>Booking summary</h3><div id="summary"></div><button class="btn btn-primary" style="width:100%;margin-top:12px" onclick="beginCheckout('${e.id}')">Get Tickets →</button><p class="muted" style="font-size:11px;text-align:center;margin-top:10px">Demo purchase · No real payment</p></aside>
+ </div></div></main>`);
+ window._selectedTier=selected;window._selectedQty=qty;updateSummary(e.id);
+}
+function selectTier(id){window._selectedTier=id;document.querySelectorAll(".ticket-option").forEach(x=>x.classList.toggle("selected",x.dataset.tier===id));updateSummary(location.hash.split("/")[2])}
+function updateSummary(eid){const t=tierById(window._selectedTier);if(!t)return;document.getElementById("summary").innerHTML=`<div class="summary-row"><span>${esc(t.name)} × ${window._selectedQty}</span><strong>${money(t.price*window._selectedQty)}</strong></div><div class="summary-row"><span>Convenience fee</span><span>${money(19)}</span></div><div class="summary-row total"><span>Total</span><span>${money(t.price*window._selectedQty+19)}</span></div>`}
+function beginCheckout(eid){const t=tierById(window._selectedTier);if(!t)return;if(t.sold>=t.quantity){toast("This ticket type is sold out.","error");return}go(`#/checkout/${eid}/${t.id}`)}
+
+function checkout(eid,tid){
+ const e=eventById(eid),t=tierById(tid);if(!e||!t){go("#/explore");return}
+ layout(`<main class="section"><div class="container"><div class="checkout">
+ <div class="card panel"><div class="split"><div><h1>Checkout</h1><p class="muted">Complete your demo booking.</p></div><span class="tag warn">DEMO / MOCK PAYMENT</span></div>
+ <div class="mock-banner" style="margin:18px 0">This is a hackathon demonstration. No real money will be charged.</div>
+ <h3>Attendee details</h3><div class="form-grid">
+  <div class="field"><label>Full name</label><input id="cname" placeholder="Your name"></div>
+  <div class="field"><label>Email</label><input id="cemail" type="email" placeholder="you@example.com"></div>
+  <div class="field full"><label>Phone number</label><input id="cphone" inputmode="tel" placeholder="10-digit phone number"></div>
+ </div>
+ <h3 style="margin-top:25px">Payment method</h3><div class="payment-methods"><div class="pay-method selected">💳 Card</div><div class="pay-method">◉ UPI</div><div class="pay-method">▣ Net Banking</div></div>
+ <button class="btn btn-primary" style="width:100%;margin-top:20px" onclick="mockPay('${eid}','${tid}')">Pay ${money(t.price+19)} (Demo)</button>
+ </div>
+ <aside class="card summary"><h3>Order Summary</h3><div class="summary-row"><span>Event</span><strong>${esc(e.name)}</strong></div><div class="summary-row"><span>Ticket</span><strong>${esc(t.name)}</strong></div><div class="summary-row"><span>Price</span><strong>${money(t.price)}</strong></div><div class="summary-row"><span>Convenience fee</span><span>${money(19)}</span></div><div class="summary-row total"><span>Total</span><span>${money(t.price+19)}</span></div></aside>
+ </div></div></main>`);
+}
+function mockPay(eid,tid){
+ const name=document.getElementById("cname").value.trim(),email=document.getElementById("cemail").value.trim(),phone=document.getElementById("cphone").value.trim();
+ if(!name||!email||!phone){toast("Please complete all attendee details.","error");return}
+ if(!/^\S+@\S+\.\S+$/.test(email)){toast("Please enter a valid email.","error");return}
+ const t=tierById(tid);if(t.sold>=t.quantity){toast("This ticket type is sold out.","error");return}
+ let a=db.attendees.find(x=>x.email.toLowerCase()===email.toLowerCase());
+ if(!a){a={id:uid("att"),name,email,phone};db.attendees.push(a)}else{a.name=name;a.phone=phone}
+ const order={id:uid("ord"),eventId:eid,attendeeId:a.id,ticketTypeId:tid,amount:t.price+19,status:"PAID",createdAt:new Date().toISOString()};
+ db.orders.push(order);t.sold++;
+ const ticket={id:"EVT-"+Math.floor(100000+Math.random()*899999),orderId:order.id,attendeeId:a.id,eventId:eid,ticketType:t.name,qrCode:"",status:"VALID",checkedInAt:null};
+ ticket.qrCode=ticket.id;db.tickets.push(ticket);save();
+ go(`#/payment-success/${ticket.id}`);
+}
+function paymentSuccess(ticketId){
+ const t=ticketById(ticketId),e=t&&eventById(t.eventId);if(!t||!e){go("#/explore");return}
+ layout(`<main class="section"><div class="ticket-shell">
+ <div class="card panel" style="text-align:center;margin-bottom:20px"><div style="font-size:48px">✓</div><h1>Payment Successful!</h1><p class="muted">Your demo ticket has been generated.</p><a class="btn btn-primary" href="#/ticket/${t.id}">View Digital Ticket</a></div>
+ </div></main>`);
+}
+
+function digitalTicket(id){
+ const t=ticketById(id),e=t&&eventById(t.eventId),a=t&&attendeeById(t.attendeeId);if(!t||!e||!a){go("#/explore");return}
+ layout(`<main class="section"><div class="ticket-shell">
+ <div class="digital-ticket card"><div class="ticket-head"><div class="split"><div><div style="font-weight:900;font-size:20px">EVENTRA</div><div style="color:#b8c0d4;margin-top:5px">${esc(e.category)} · Digital Ticket</div></div><span class="tag live">VALID</span></div><h1 style="margin:35px 0 5px;font-size:32px">${esc(e.name)}</h1><div style="color:#c8cedc">${dateText(e.date)} · ${esc(e.time)} · ${esc(e.city)}</div></div>
+ <div class="ticket-main"><div class="ticket-info"><div><small>ATTENDEE</small><strong>${esc(a.name)}</strong></div><div><small>TICKET TYPE</small><strong>${esc(t.ticketType)}</strong></div><div><small>VENUE</small><strong>${esc(e.venue)}</strong></div><div><small>TICKET ID</small><strong>${esc(t.id)}</strong></div></div><div class="ticket-cut"></div><div class="qr-area"><div id="qrcode"></div></div><p class="muted" style="text-align:center;font-size:12px">Show this QR code at the entrance. It contains your unique ticket identifier.</p></div></div>
+ <div class="hero-actions" style="justify-content:center"><button class="btn btn-secondary" onclick="window.print()">Download / Print Ticket</button><a class="btn btn-primary" href="#/my-tickets">Back to My Tickets</a></div>
+ </div></main>`);
+ setTimeout(()=>new QRCode(document.getElementById("qrcode"),{text:t.qrCode,width:210,height:210,colorDark:"#111827",colorLight:"#ffffff",correctLevel:QRCode.CorrectLevel.H}),50);
+}
+
+function login(){
+ layout(`<main class="login-page"><div class="login-card card">
+ <div class="brand" style="margin-bottom:25px"><span class="brand-mark">E</span>Eventra</div><h1>Welcome back</h1><p class="muted">Sign in to continue your event journey.</p>
+ <div class="form-grid" style="margin-top:20px"><div class="field full"><label>Email</label><input id="lemail" type="email" placeholder="you@example.com"></div><div class="field full"><label>Password</label><input id="lpass" type="password" placeholder="••••••••"></div></div>
+ <button class="btn btn-primary" style="width:100%;margin-top:16px" onclick="doLogin()">Login</button>
+ <div class="demo-box"><b>⚡ Demo Mode</b>Organizer: organizer@eventra.demo / demo123<br>Attendee: attendee@eventra.demo / demo123<br><button class="btn btn-secondary" style="margin-top:10px;width:100%" onclick="demoLogin('organizer')">Enter Organizer Demo</button><button class="btn btn-secondary" style="margin-top:7px;width:100%" onclick="demoLogin('attendee')">Enter Attendee Demo</button></div>
+ </div></main>`);
+}
+function doLogin(){const e=document.getElementById("lemail").value.trim().toLowerCase(),p=document.getElementById("lpass").value;if(p!=="demo123"){toast("Demo password is demo123.","error");return}if(e==="organizer@eventra.demo")demoLogin("organizer");else if(e==="attendee@eventra.demo")demoLogin("attendee");else toast("Use one of the demo accounts.","error")}
+function demoLogin(role){setSession({role,email:role==="organizer"?"organizer@eventra.demo":"attendee@eventra.demo",name:role==="organizer"?"Organizer":"Demo Attendee"});go(role==="organizer"?"#/dashboard":"#/my-tickets")}
+
+function side(active){
+ const items=[["dashboard","Dashboard","▦"],["events","My Events","◫"],["create","Create Event","＋"],["attendees","Attendees","♙"],["scanner","Check-in","▣"],["analytics","Analytics","⌁"]];
+ return `<aside class="sidebar"><div class="side-title">Organizer</div>${items.map(x=>`<a class="side-link ${active===x[0]?"active":""}" href="#/${x[1]==="Create Event"?"create":x[0]}"><span>${x[2]}</span>${x[1]}</a>`).join("")}<div class="side-title" style="margin-top:15px">Account</div><a class="side-link" href="#/my-tickets">My Tickets</a><button class="side-link" style="width:100%;background:none;border:0;text-align:left" onclick="logout()">↪ Log out</button></aside>`;
+}
+function dashboard(){
+ if(!session||session.role!=="organizer"){go("#/login");return}
+ const events=db.events.filter(e=>e.organizerId==="org-demo"), tickets=organizerTickets();
+ const totalInventory=db.ticketTypes.filter(t=>events.some(e=>e.id===t.eventId)).reduce((s,t)=>s+t.quantity,0);
+ const sold=db.ticketTypes.filter(t=>events.some(e=>e.id===t.eventId)).reduce((s,t)=>s+t.sold,0);
+ const checked=tickets.filter(t=>t.status==="CHECKED_IN").length;
+ layout(`<div class="app-shell">${side("dashboard")}<main class="main">
+ <div class="page-title"><div><h1>Good morning, Organizer 👋</h1><p>Here's what's happening across your events.</p></div><a class="btn btn-primary" href="#/create">+ Create Event</a></div>
+ <div class="stats"><div class="card stat"><small>Total Events</small><strong>${events.length}</strong><div class="delta">↑ 12% this month</div></div><div class="card stat"><small>Tickets Sold</small><strong>${sold}</strong><div class="delta">↑ 18% this month</div></div><div class="card stat"><small>Revenue</small><strong>${money(revenue())}</strong><div class="delta">↑ 21% this month</div></div><div class="card stat"><small>Checked In</small><strong id="liveCheck">${checked}</strong><div class="delta">${sold?Math.round(checked/Math.max(sold,1)*100):0}% attendance</div></div></div>
+ <div class="dashboard-grid"><div class="card panel"><div class="split"><h3>Ticket sales</h3><span class="tag">Last 7 days</span></div><div class="chart-wrap"><canvas id="salesChart"></canvas></div></div>
+ <div class="card panel health"><h3>Event Health</h3><div class="muted">🟢 Running Smoothly</div><div class="health-score">${sold?Math.round(checked/Math.max(sold,1)*100):0}%</div><div class="muted">Attendance</div><div class="progress" style="margin:9px 0 20px"><i style="width:${sold?Math.round(checked/Math.max(sold,1)*100):0}%"></i></div><div class="split"><span>Tickets remaining</span><strong>${Math.max(totalInventory-sold,0)}</strong></div><div class="split" style="margin-top:12px"><span>Check-in</span><strong>On Track</strong></div></div></div>
+ <div class="card panel" style="margin-top:18px"><div class="split"><h3>Recent events</h3><a href="#/events/manage" class="muted">Manage all →</a></div><div class="grid grid-3">${events.slice(0,3).map(eventCard).join("")}</div></div>
+ </main></div>`);
+ setTimeout(()=>drawSalesChart(),50);
+}
+function drawSalesChart(){
+ const c=document.getElementById("salesChart");if(!c)return;
+ new Chart(c,{type:"line",data:{labels:["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],datasets:[{label:"Tickets sold",data:[42,65,54,91,78,113,96],borderColor:"#635bff",backgroundColor:"rgba(99,91,255,.10)",fill:true,tension:.4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,grid:{color:"#eef0f3"}},x:{grid:{display:false}}}}});
+}
+
+function manageEvents(){
+ if(!session||session.role!=="organizer"){go("#/login");return}
+ layout(`<div class="app-shell">${side("events")}<main class="main"><div class="page-title"><div><h1>My Events</h1><p>Manage inventory, attendees and event operations.</p></div><a class="btn btn-primary" href="#/create">+ Create Event</a></div>
+ <div class="grid grid-2" style="grid-template-columns:1fr">${db.events.map(e=>{const ts=db.ticketTypes.filter(t=>t.eventId===e.id),sold=ts.reduce((s,t)=>s+t.sold,0),inv=ts.reduce((s,t)=>s+t.quantity,0);return `<div class="card panel"><div class="split"><div><span class="tag live">LIVE</span><h2 style="margin:9px 0">${esc(e.name)}</h2><p class="muted">📅 ${dateText(e.date)} · 📍 ${esc(e.city)}</p></div><a class="btn btn-secondary" href="#/events/${e.id}">View Event</a></div><div style="margin:18px 0"><div class="split"><span>Ticket inventory</span><strong>${sold}/${inv} sold</strong></div><div class="progress" style="margin-top:8px"><i style="width:${Math.round(sold/inv*100)}%"></i></div></div><div class="grid grid-3">${ts.map(t=>`<div><small class="muted">${esc(t.name)}</small><strong style="display:block;margin-top:4px">${t.sold}/${t.quantity}</strong></div>`).join("")}</div><div class="hero-actions"><a class="btn btn-secondary" href="#/attendees?event=${e.id}">Attendees</a><a class="btn btn-primary" href="#/scanner?event=${e.id}">Open Scanner</a><a class="btn btn-secondary" href="#/analytics">Analytics</a></div></div>`}).join("")}</div>
+ </main></div>`);
+}
+
+function attendees(){
+ if(!session||session.role!=="organizer"){go("#/login");return}
+ const rows=organizerTickets();
+ layout(`<div class="app-shell">${side("attendees")}<main class="main"><div class="page-title"><div><h1>Attendees</h1><p>Search registrations and manage entry status.</p></div><a class="btn btn-primary" href="#/scanner">Open Scanner</a></div>
+ <div class="card panel"><div class="field" style="max-width:430px;margin-bottom:15px"><label>Search attendee</label><input id="attSearch" placeholder="Name, email or ticket ID"></div><div class="table-wrap"><table class="table"><thead><tr><th>Name</th><th>Email</th><th>Ticket</th><th>Ticket ID</th><th>Purchase</th><th>Status</th><th>Action</th></tr></thead><tbody id="attRows"></tbody></table></div></div>
+ </main></div>`);
+ const draw=()=>{const q=document.getElementById("attSearch").value.toLowerCase();document.getElementById("attRows").innerHTML=rows.filter(t=>{const a=attendeeById(t.attendeeId);return (a.name+" "+a.email+" "+t.id).toLowerCase().includes(q)}).map(t=>{const a=attendeeById(t.attendeeId),o=db.orders.find(o=>o.id===t.orderId);return `<tr><td><strong>${esc(a.name)}</strong></td><td>${esc(a.email)}</td><td>${esc(t.ticketType)}</td><td>${esc(t.id)}</td><td>${dateText((o?.createdAt||"").slice(0,10))}</td><td><span class="status ${t.status==="CHECKED_IN"?"ok":"pending"}">${t.status==="CHECKED_IN"?"Checked In":"Not Checked In"}</span></td><td><button class="btn ${t.status==="CHECKED_IN"?"btn-secondary":"btn-primary"}" onclick="quickCheck('${t.id}')">${t.status==="CHECKED_IN"?"View":"Check In"}</button></td></tr>`}).join("")||`<tr><td colspan="7" class="empty">No attendees found.</td></tr>`};document.getElementById("attSearch").oninput=draw;draw();
+}
+function quickCheck(id){const t=ticketById(id);if(!t)return;if(t.status==="CHECKED_IN"){toast("This ticket is already checked in.","error");return}t.status="CHECKED_IN";t.checkedInAt=new Date().toISOString();save();toast("Attendee checked in successfully.","success");attendees()}
+
+function scanner(){
+ if(!session||session.role!=="organizer"){go("#/login");return}
+ layout(`<div class="app-shell">${side("scanner")}<main class="main"><div class="page-title"><div><h1>Scan Attendee Ticket</h1><p>Verify a QR ticket before entry.</p></div><span class="tag live">● LIVE CHECK-IN</span></div>
+ <div class="scanner"><div class="card panel"><div class="scan-window" id="readerWrap"><div id="reader"></div></div><p class="muted" style="font-size:12px;text-align:center">Camera access may require HTTPS/localhost. Use the manual fallback below if needed.</p>
+ <div class="field"><label>Manual Ticket ID fallback</label><input id="manualTicket" placeholder="Example: EVT-100001"></div><button class="btn btn-primary" style="width:100%;margin-top:10px" onclick="verifyManual()">Verify Ticket</button></div><div id="scanResult"></div></div>
+ </main></div>`);
+ setTimeout(startScanner,100);
+}
+let scannerInstance=null;
+function startScanner(){
+ try{
+  scannerInstance=new Html5Qrcode("reader");
+  scannerInstance.start({facingMode:"environment"},{fps:10,qrbox:{width:220,height:220}},text=>verifyTicket(text),()=>{}).catch(()=>{});
+ }catch(e){}
+}
+function verifyManual(){verifyTicket(document.getElementById("manualTicket").value.trim())}
+function verifyTicket(raw){
+ const id=String(raw).trim().replace(/^https?:\/\/.*\//,"");
+ const t=db.tickets.find(x=>x.id===id||x.qrCode===id);
+ const box=document.getElementById("scanResult");if(!box)return;
+ if(!t){box.innerHTML=`<div class="card panel scan-result result-invalid"><div class="result-icon">❌</div><h2>Invalid Ticket</h2><p>This ticket could not be verified.</p></div>`;return}
+ const a=attendeeById(t.attendeeId),e=eventById(t.eventId);
+ if(t.status==="CHECKED_IN"){box.innerHTML=`<div class="card panel scan-result result-warn"><div class="result-icon">⚠️</div><h2>Already Checked In</h2><p>This ticket was already used${t.checkedInAt?" at "+new Date(t.checkedInAt).toLocaleTimeString():""}.</p><div class="grid grid-3"><div><small class="muted">Attendee</small><strong>${esc(a.name)}</strong></div><div><small class="muted">Ticket</small><strong>${esc(t.ticketType)}</strong></div><div><small class="muted">ID</small><strong>${esc(t.id)}</strong></div></div></div>`;return}
+ box.innerHTML=`<div class="card panel scan-result result-valid"><div class="result-icon">✓</div><h2>Ticket Verified</h2><p>Valid ticket for <strong>${esc(e.name)}</strong>.</p><div class="grid grid-3"><div><small class="muted">Attendee</small><strong>${esc(a.name)}</strong></div><div><small class="muted">Ticket</small><strong>${esc(t.ticketType)}</strong></div><div><small class="muted">Ticket ID</small><strong>${esc(t.id)}</strong></div></div><button class="btn btn-primary" style="width:100%;margin-top:18px" onclick="confirmCheckIn('${t.id}')">Check In Attendee</button></div>`;
+}
+function confirmCheckIn(id){const t=ticketById(id);if(!t)return;if(t.status==="CHECKED_IN"){toast("Already checked in.","error");return}t.status="CHECKED_IN";t.checkedInAt=new Date().toISOString();save();toast("✓ Successfully checked in.","success");verifyTicket(id)}
+
+function analytics(){
+ if(!session||session.role!=="organizer"){go("#/login");return}
+ const tickets=organizerTickets(),sold=tickets.length,checked=tickets.filter(t=>t.status==="CHECKED_IN").length;
+ layout(`<div class="app-shell">${side("analytics")}<main class="main"><div class="page-title"><div><h1>Analytics</h1><p>Understand ticket performance and attendance.</p></div></div>
+ <div class="stats"><div class="card stat"><small>Total Revenue</small><strong>${money(revenue())}</strong><div class="delta">Live demo data</div></div><div class="card stat"><small>Tickets Sold</small><strong>${sold}</strong><div class="delta">Across your events</div></div><div class="card stat"><small>Attendance</small><strong>${sold?Math.round(checked/sold*100):0}%</strong><div class="delta">${checked} checked in</div></div><div class="card stat"><small>Conversion Rate</small><strong>42%</strong><div class="delta">Demo metric</div></div></div>
+ <div class="dashboard-grid"><div class="card panel"><h3>Revenue over time</h3><div class="chart-wrap"><canvas id="revChart"></canvas></div></div><div class="card panel"><h3>Ticket type performance</h3><div class="chart-wrap"><canvas id="typeChart"></canvas></div></div></div>
+ </main></div>`);
+ setTimeout(()=>{new Chart(document.getElementById("revChart"),{type:"line",data:{labels:["Apr","May","Jun","Jul","Aug","Sep","Oct"],datasets:[{label:"Revenue",data:[18000,29000,41000,52000,68000,84000,97000],borderColor:"#635bff",tension:.4}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}}}});const types={};db.ticketTypes.forEach(t=>types[t.name]=(types[t.name]||0)+t.sold);new Chart(document.getElementById("typeChart"),{type:"doughnut",data:{labels:Object.keys(types),datasets:[{data:Object.values(types),backgroundColor:["#635bff","#12b76a","#f79009"]}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:"bottom"}}}})},50);
+}
+
+function createEvent(){
+ if(!session){go("#/login");return}
+ let step=1,tickets=[{name:"General",price:299,quantity:100,benefits:"Event entry, Standard seating"}];
+ const render=()=>{layout(`<main class="section"><div class="container" style="max-width:900px"><div class="page-title"><div><h1>Create an Event</h1><p>Turn an idea into a live event.</p></div></div><div class="steps">${[1,2,3].map(x=>`<div class="step ${x<=step?"active":""}"></div>`).join("")}</div><div id="wizard"></div></div></main>`);drawStep()};
+ const basic=()=>{return `<div class="card panel"><h2>1. Basic details</h2><div class="form-grid"><div class="field full"><label>Event name *</label><input id="ename" placeholder="e.g. FutureTech Summit"></div><div class="field"><label>Category</label><select id="ecat"><option>Technology</option><option>Music</option><option>Business</option><option>Design</option><option>Sports</option></select></div><div class="field"><label>Date</label><input id="edate" type="date"></div><div class="field"><label>Start time</label><input id="etime" type="time" value="09:00"></div><div class="field"><label>End time</label><input id="eend" type="time" value="18:00"></div><div class="field"><label>Venue</label><input id="evenue" placeholder="Event venue"></div><div class="field"><label>City</label><input id="ecity" placeholder="Chennai"></div><div class="field full"><label>Description</label><textarea id="edesc" placeholder="What should attendees know?"></textarea></div><div class="field full"><label>Event banner URL (optional)</label><input id="eimage" placeholder="https://..."></div></div><div class="hero-actions" style="justify-content:flex-end"><button class="btn btn-primary" onclick="nextCreate()">Continue →</button></div></div>`};
+ const ticketsStep=()=>`<div class="card panel"><h2>2. Ticket types</h2><p class="muted">Set price, inventory and benefits.</p><div id="ticketEditor">${tickets.map((t,i)=>`<div class="card panel" style="margin:12px 0;background:#fafbfc"><div class="form-grid"><div class="field"><label>Ticket name</label><input data-i="${i}" data-k="name" value="${esc(t.name)}"></div><div class="field"><label>Price (₹)</label><input data-i="${i}" data-k="price" type="number" value="${t.price}"></div><div class="field"><label>Quantity</label><input data-i="${i}" data-k="quantity" type="number" value="${t.quantity}"></div><div class="field"><label>Benefits</label><input data-i="${i}" data-k="benefits" value="${esc(t.benefits)}"></div></div></div>`).join("")}</div><button class="btn btn-secondary" onclick="tickets.push({name:'VIP',price:699,quantity:50,benefits:'Priority entry, Premium seating, Goodie bag'});drawStep()">+ Add Ticket Type</button><div class="hero-actions" style="justify-content:space-between"><button class="btn btn-secondary" onclick="step=1;render()">← Back</button><button class="btn btn-primary" onclick="nextCreate()">Review →</button></div></div>`;
+ const review=()=>`<div class="card panel"><span class="tag live">READY TO PUBLISH</span><h2 style="margin-top:12px">${esc(document.getElementById("ename")?.value||"Your Event")}</h2><p class="muted">${esc(document.getElementById("edesc")?.value||"Event description")}</p><div class="grid grid-3" style="margin:20px 0"><div><small class="muted">Date</small><strong style="display:block">${dateText(document.getElementById("edate")?.value)}</strong></div><div><small class="muted">Time</small><strong style="display:block">${document.getElementById("etime")?.value||"09:00"}</strong></div><div><small class="muted">Venue</small><strong style="display:block">${esc(document.getElementById("evenue")?.value||"—")}</strong></div></div><h3>Ticket tiers</h3>${tickets.map(t=>`<div class="summary-row"><span>${esc(t.name)} · ${t.quantity} seats</span><strong>${money(t.price)}</strong></div>`).join("")}<div class="hero-actions" style="justify-content:space-between"><button class="btn btn-secondary" onclick="step=2;render()">← Back</button><button class="btn btn-primary" onclick="publishCreated()">🎉 Publish Event</button></div></div>`;
+ const drawStep=()=>{document.getElementById("wizard").innerHTML=step===1?basic():step===2?ticketsStep():review();if(step===2){document.querySelectorAll("#ticketEditor input").forEach(el=>el.oninput=()=>{tickets[+el.dataset.i][el.dataset.k]=el.dataset.k==="price"||el.dataset.k==="quantity"?Number(el.value):el.value})}};
+ window.nextCreate=()=>{if(step===1){if(!document.getElementById("ename").value.trim()){toast("Please enter the event name.","error");return}if(!document.getElementById("edate").value){toast("Please select an event date.","error");return}step=2;render()}else{step=3;render()}};
+ window.publishCreated=()=>{const e={id:uid("evt"),name:document.getElementById("ename").value.trim(),category:document.getElementById("ecat").value,description:document.getElementById("edesc").value.trim(),date:document.getElementById("edate").value,time:document.getElementById("etime").value,endTime:document.getElementById("eend").value,venue:document.getElementById("evenue").value.trim(),city:document.getElementById("ecity").value.trim(),organizerId:"org-demo",image:document.getElementById("eimage").value.trim(),status:"LIVE"};db.events.unshift(e);tickets.forEach(t=>db.ticketTypes.push({id:uid("tier"),eventId:e.id,name:t.name,price:Number(t.price),quantity:Number(t.quantity),sold:0,benefits:String(t.benefits).split(",").map(x=>x.trim()).filter(Boolean)}));save();document.getElementById("wizard").innerHTML=`<div class="card panel" style="text-align:center;padding:55px"><div style="font-size:55px">🎉</div><h1>Your event is live!</h1><p class="muted">Judges can now explore it and purchase a demo ticket.</p><div class="hero-actions" style="justify-content:center"><a class="btn btn-secondary" href="#/events/${e.id}">View Event</a><a class="btn btn-primary" href="#/events/manage">Manage Event</a></div></div>`};
+ render();
+}
+
+function myTickets(){
+ const mine=session?db.tickets.filter(t=>t.attendeeId===(db.attendees.find(a=>a.email===session.email)?.id||"")):db.tickets.slice(0,8);
+ layout(`<main class="section"><div class="container"><div class="page-title"><div><h1>My Tickets</h1><p>Your digital event passes in one place.</p></div><a class="btn btn-primary" href="#/explore">Explore Events</a></div><div class="grid grid-3">${mine.map(t=>{const e=eventById(t.eventId);return `<div class="card panel"><span class="tag ${t.status==="CHECKED_IN"?"live":""}">${t.status==="CHECKED_IN"?"CHECKED IN":"VALID"}</span><h2 style="font-size:20px">${esc(e.name)}</h2><p class="muted">${dateText(e.date)} · ${esc(e.city)}</p><div class="summary-row"><span>${esc(t.ticketType)}</span><strong>${esc(t.id)}</strong></div><a class="btn btn-primary" style="width:100%" href="#/ticket/${t.id}">View QR Ticket</a></div>`}).join("")||`<div class="card empty" style="grid-column:1/-1">No tickets yet. Explore an event and book a demo ticket.</div>`}</div></div></main>`);
+}
+
+function router(){
+ const r=currentRoute(),parts=r.split("/").filter(Boolean);
+ if(r==="/"||!r){landing();return}
+ if(parts[0]==="explore"){explore();return}
+ if(parts[0]==="login"){login();return}
+ if(parts[0]==="create"){createEvent();return}
+ if(parts[0]==="events"&&parts[1]==="manage"){manageEvents();return}
+ if(parts[0]==="events"&&parts[1]){eventDetails(parts[1]);return}
+ if(parts[0]==="checkout"&&parts[1]&&parts[2]){checkout(parts[1],parts[2]);return}
+ if(parts[0]==="payment-success"&&parts[1]){paymentSuccess(parts[1]);return}
+ if(parts[0]==="ticket"&&parts[1]){digitalTicket(parts[1]);return}
+ if(parts[0]==="dashboard"){dashboard();return}
+ if(parts[0]==="attendees"){attendees();return}
+ if(parts[0]==="scanner"){scanner();return}
+ if(parts[0]==="analytics"){analytics();return}
+ if(parts[0]==="my-tickets"){myTickets();return}
+ if(parts[0]==="organizer"){dashboard();return}
+ landing();
+}
+window.addEventListener("hashchange",router);window.addEventListener("load",router);
+</script>
+
+
+</body></html>
