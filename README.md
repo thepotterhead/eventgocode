@@ -1,2 +1,3 @@
 # eventgocode
-here is our !!
+Event go ticket platform
+
